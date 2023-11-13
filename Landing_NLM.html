@@ -8,6 +8,329 @@
 		<link rel="stylesheet" href="/css/eyewebstyle.css" type="text/css"/>
 		<!-- HTML meta refresh URL redirection -->
 		<!--<meta http-equiv="refresh" content="10; url=/"/>-->
+		<style>
+			/*
+* Made by Erik Terwan https://codepen.io/erikterwan/pen/EVzeRP
+* 24th of November 2015
+* MIT License
+*
+*
+* If you are thinking of using this in
+* production code, beware of the browser
+* prefixes.
+*/
+
+html, body{
+    margin: 0;
+    padding: 0;
+    /* make it look decent enough */
+    background: #ededed;
+    /* cambia color texto*/
+    color:rgb(0, 0, 0); 
+    font-family: "Avenir Next", "Avenir", sans-serif;
+}
+
+
+div.content {
+    max-width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+
+div.content a {
+    color: blue;
+}
+
+/* * inicio menu hamburguesa _ retocado del original* */
+#menuToggle {
+    display: block;
+    position: relative;
+    top: 50px;
+    left: 50px;
+
+    z-index: 1;
+
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#menuToggle a {
+    text-decoration: none;
+    color: #232323;
+
+    transition: color 0.3s ease;
+}
+
+#menuToggle a:hover {
+    color: rgb(172, 172, 172);
+}
+#menuToggle .active {
+    color: rgb(34, 158, 34);
+}
+
+#menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+
+    cursor: pointer;
+
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+
+    -webkit-touch-callout: none;
+}
+
+/*
+* Just a quick hamburger
+*/
+#menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+
+    background: #232323;
+    border-radius: 3px;
+
+    z-index: 1;
+
+    transform-origin: 4px 0px;
+
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+/* 
+* Transform all the slices of hamburger
+* into a crossmark.
+*/
+#menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+}
+
+/*
+* But let's hide the middle one.
+*/
+#menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+* Ohyeah and the last one should go the other direction
+*/
+#menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+* Make this absolute positioned
+* at the top left of the screen
+*/
+#menu {
+    position: absolute;
+    width: 300px;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+
+    background: #ededed;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li {
+    padding: 10px 0;
+    font-size: 22px;
+}
+
+/*
+* And let's slide it in from the left
+*/
+#menuToggle input:checked ~ ul {
+    transform: none;
+}
+/* * fin menu hamburguesa * */
+
+
+
+/** *DISEÑO WEB E.Y.E.* **/
+
+
+/* 
+*
+* diseño propio 
+*
+* 202310150409
+*/
+
+/* * decoración texto * */
+
+/******* TITULO WEB + LOGO *******/
+
+img.logo {
+    float: left;
+    padding-left: 100px;
+    height:165px; 
+	width:150px;
+}
+#titulo { 
+    /*color:rgb(0, 0, 0); */
+    font-size: 225%; 
+    text-align: center;
+}
+
+
+/*boton imprimir*/
+.printPageButton { 
+    text-align:right;
+}
+
+@media print {
+    .printPageButton {
+        display: none;
+    }
+}
+
+/****** RESTO WEB ******/
+
+div.contentb {
+    margin: 0 auto;
+    max-width: 80%;
+    display:inline;
+}
+
+/* *indice y resumen* */
+#indice .summary {
+    background: linear-gradient(180deg, 
+        rgba(0,0,0,0) calc(50% - 1px), 
+        rgb(243, 242, 242) calc(50%), 
+        rgba(0,0,0,0) calc(50% + 5px)
+    );
+    background-color:#E6E6FA;
+    margin: 0 auto;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+}
+.detalle {
+    background-color:#c5c5d8;
+    margin: 0 auto;
+    padding: 8px;
+}
+.detalle i {
+    font-size: 12px; 
+}
+
+
+
+/* *productos* */
+div#seccionPrincipal { 
+    background-color:#DCDCDC;
+    margin: 0 auto;
+    padding: 25px;
+    width: fit-content;
+}
+
+div#seccionPrincipal p { 
+    background-color:#d6d2d2;
+    margin: 0 auto;
+    padding: 25px;
+    text-align: center;
+}
+
+div#seccionProductos { 
+    background-color:#DCDCDC;
+    margin: 0 auto;
+    padding: 25px;
+    width: fit-content;
+}
+
+div#seccionProductos p { 
+    background-color:#d6d2d2;
+    margin: 0 auto;
+    padding: 25px;
+    text-align: center;
+}
+
+table.productos, thead th, tbody th, tbody td , tfoot th, tfoot td {
+    border: 1px solid;
+    border-collapse: collapse;
+    background-color:#d6d2d2;
+    margin: 0 auto;
+    padding: 7px;
+}
+
+#imgdispositivo {
+    width: 174px;
+    max-width: 80%;
+}
+#imgdispositivo2 {
+    height:100px; 
+    width:100px;
+}
+#imglogo {
+    width:100px;
+}
+
+/* pie de pagina */
+footer {
+	bottom:0%;
+	text-align: center;
+}
+
+
+
+/*  * web de mantenimiento * */
+.mantenimiento {
+    margin: auto;
+	width: 50%;
+	text-align:center;
+	font-family:"Comic Sans MS", "Avenir Next", "Avenir", sans-serif;
+	font-size:15px;
+}
+
+/* * * ERROR * * */
+#texto {
+	text-align:center;
+	font-family:Comic Sans MS;
+	margin: 20px;
+	padding: 5px 10px;
+	color: black;
+	font-size: 100%;
+}
+
+#texto2 {
+	text-align:center;
+	font-family:Comic Sans MS;
+	margin: 20px;
+	padding: 5px 10px;
+	color: black;
+	font-size: 100%;
+}
+		</style>
 	</head>
 	<body>
 		<div class="content">
@@ -62,7 +385,7 @@
 						<details >
 							<summary>
 								[Pulsa para desplegar] <br/>
-								<b style="text-decoration: underline; text-decoration-style: dotted;">Última actualización: 13/11/2023 23:12h CEST</b> 
+								<b style="text-decoration: underline; text-decoration-style: dotted;">Última actualización: 14/11/2023 00:24h CEST</b> 
 							</summary>
 							<div class="detalle">
 								<p>
@@ -77,10 +400,10 @@
 					<p hidden >No hay productos añadidos para comparar precios en este momento.</p>
 					<div class="tablaProductos">
 						<div id="iPhone">
-						<img type="png" id="imgdispositivo" style="display: block; margin-left: auto; margin-right: auto; width: 20%;" src="/img/Logo_Apple-iPhone.png" alt="Apple iPhone Logo">
-						<h4 id="AppleiPhoneTxt" style="text-align: center;">Apple iPhone<sup>*</sup></h4>
-						<p hidden >No hay teléfonos Apple iPhone añadidos para recomendar en este momento. ¡Lamentamos las molestias! <a href="https://wa.me/?text=Quiero%20más%20info%20sobre%20los%20precios%20de%20los%20iPhone%20.[El%20recomendador%20de%20NLM%20|https://eye1201.github.io/content/Landing_NLM.html%23iPhone]" target="_blank" rel="noopener noreferrer">Pulsa aquí para obetener información.</a></p>
-						<br/>
+							<img type="png" id="imgdispositivo" style="display: block; margin-left: auto; margin-right: auto; width: 20%;" src="/img/Logo_Apple-iPhone.png" alt="Apple iPhone Logo">
+							<h4 id="AppleiPhoneTxt" style="text-align: center;">Apple iPhone<sup>*</sup></h4>
+							<p hidden >No hay teléfonos Apple iPhone añadidos para recomendar en este momento. ¡Lamentamos las molestias! <a href="https://wa.me/?text=Quiero%20más%20info%20sobre%20los%20precios%20de%20los%20iPhone%20.[El%20recomendador%20de%20NLM%20|https://eye1201.github.io/content/Landing_NLM.html%23iPhone]" target="_blank" rel="noopener noreferrer">Pulsa aquí para obetener información.</a></p>
+							<br/>
 							<table  id="iPhone" class="productos">
 								<thead>
 									<tr>
@@ -106,16 +429,16 @@
 											<span> - <a href="https://www.apple.com/es/shop/buy-iphone/iphone-15-pro/pantalla-de-6,1%E2%80%B3-256gb-titanio-blanco" target="_blank" rel="noopener noreferrer">[Titanio blanco -> 1.349 €]</a></span><br/>
 											<hr style="border: 1px dashed"/>
 											<span><b>Amazon:</b></span><br/>
-											<span> - <a href="https://www.amazon.es/dp/B0CHX5FL7Z" target="_blank" rel="noopener noreferrer">[Titanio natural -> 1.349 €]</a></span><br/>
+											<span> - <a href="https://www.amazon.es/dp/B0CHWYHBCZ" target="_blank" rel="noopener noreferrer">[Titanio natural -> 1.349 €]</a></span><br/>
 											<hr style="border: 1px dashed"/>
 											<span><b>El Corte Inglés:</b></span><br/>
 											<span> - <a href="https://www.elcorteingles.es/electronica/A49247099-apple-iphone-15-pro-movil-libre/?color=Natural%20/%20Titanio" target="_blank" rel="noopener noreferrer">[Titanio natural -> 1.349 €]</a></span><br/>
 											<hr style="border: 1px dashed"/>
 											<span><b>Media Markt:</span></b><br/>
-											<span> - <a href="https://www.mediamarkt.es/es/product/_apple-iphone-15-pro-titanio-blanco-256-gb-5g-61-pantalla-super-retina-xdr-chip-a16-bionic-ios-1561355.html" target="_blank" rel="noopener noreferrer">[Titanio blanco -> 1.349 €]</a></span><br/>
+											<span> - <a href="https://www.mediamarkt.es/es/product/_apple-iphone-15-pro-titanio-azul-256-gb-5g-61-pantalla-super-retina-xdr-chip-a16-bionic-ios-1561357.html" target="_blank" rel="noopener noreferrer">[Titanio azul -> 1.349 €]</a></span><br/>
 											<hr style="border: 1px dashed"/>
 											<span><b>Yaphone:</b></span><br/>
-											<span> - <a href="https://www.yaphone.com/es/home/2688-apple-iphone-15-pro.html#/12-almacenamiento-256gb/139-color-titanio_blanco" target="_blank" rel="noopener noreferrer">[Titanio blanco -> 1.349 €]</a></span><br/>
+											<span> - <a href="https://www.yaphone.com/es/home/2688-apple-iphone-15-pro.html#/12-almacenamiento-256gb/137-color-titanio_natural" target="_blank" rel="noopener noreferrer">[Titanio natural -> 1.279 €]</a></span><br/>
 										</td>
 									</tr>
 									<tr id="iPhone15">
@@ -132,13 +455,13 @@
 											<span> - <a href="https://www.amazon.es/gp/aw/d/B0CHWYTK3Y/" target="_blank" rel="noopener noreferrer">[Azul -> 1.089 €]</a></span><br/>
 											<hr style="border: 1px dashed"/>
 											<span><b>El Corte Inglés:</b></span><br/>
-											<span> - <a href="https://www.elcorteingles.es/electronica/A49247158-apple-iphone-15-movil-libre/?color=Azul" target="_blank" rel="noopener noreferrer">[Azul -> 1.089 €]</a></span><br/>
+											<span> - <a href="https://www.elcorteingles.es/electronica/A49247158-apple-iphone-15-movil-libre/?color=Azul" target="_blank" rel="noopener noreferrer">[Azul -> <del>1.089 €</del> 1.049 €]</a></span><br/>
 											<hr style="border: 1px dashed"/>
 											<span><b>Media Markt:</span></b><br/>
-											<span> - <a href="https://www.mediamarkt.es/es/product/_apple-iphone-15-azul-256-gb-5g-61-oled-super-retina-xdr-chip-a16-bionic-ios-1561328.html" target="_blank" rel="noopener noreferrer">[Azul -> 1.089 €]</a></span><br/>
+											<span> - <a href="https://www.mediamarkt.es/es/product/_apple-iphone-15-azul-256-gb-5g-61-oled-super-retina-xdr-chip-a16-bionic-ios-1561328.html" target="_blank" rel="noopener noreferrer">[Azul -> <del>1.089 €</del> 1.049 €]</a></span><br/>
 											<hr style="border: 1px dashed"/>
 											<span><b>Yaphone:</b></span><br/>
-											<span> - <a href="https://www.yaphone.com/es/home/2687-apple-iphone-15.html#/12-almacenamiento-256gb/21-color-azul" target="_blank" rel="noopener noreferrer">[Azul -> 1.089 €]</a></span><br/>
+											<span> - <a href="https://www.yaphone.com/es/home/2687-apple-iphone-15.html#/12-almacenamiento-256gb/21-color-azul" target="_blank" rel="noopener noreferrer">[Azul -> 959 €]</a></span><br/>
 										</td>
 									</tr>
 								</tbody>
@@ -174,13 +497,13 @@
 										</th>
 										<td>
 											<span><b>Samsung Store:</b></span>
-											<span><a href="https://www.samsung.com/es/smartphones/galaxy-s23-ultra/buy/" target="_blank" rel="noopener noreferrer"><del>1.409 €</del> 1.249 €</a></span>
+											<span><a href="https://www.samsung.com/es/smartphones/galaxy-s23-ultra/buy/" target="_blank" rel="noopener noreferrer"><del>1.409 €</del> 1.049 €</a></span>
 											<hr style="border: 1px dashed"/>
 											<span><b>Amazon:</b></span>
-											<span><a href="https://www.amazon.es/dp/B0BQRSVKBT/" target="_blank" rel="noopener noreferrer"><del>1.459 €</del> 1.299 €</a></span>
+											<span><a href="https://www.amazon.es/dp/B0BQRSVKBT/" target="_blank" rel="noopener noreferrer"><del>1.459 €</del> 1.199 €</a></span>
 											<hr style="border: 1px dashed"/>
 											<span><b>Yaphone:</b></span>
-											<span><a href="https://www.yaphone.com/es/home/2569-samsung-galaxy-s23-ultra-5g.html#/12-almacenamiento-256gb/43-memoria_ram-8gb/98-color-crema" target="_blank" rel="noopener noreferrer">1.059 €</a></span>
+											<span><a href="https://www.yaphone.com/es/home/2569-samsung-galaxy-s23-ultra-5g.html#/12-almacenamiento-256gb/43-memoria_ram-8gb/98-color-crema" target="_blank" rel="noopener noreferrer">969 €</a></span>
 										</td>
 									</tr>
 									<tr id="GalaxyS23">
@@ -190,13 +513,13 @@
 										</th>
 										<td>
 											<span><b>Samsung Store:</b></span>
-											<span><a href="https://www.samsung.com/es/smartphones/galaxy-s23/buy/" target="_blank" rel="noopener noreferrer">1.019 €</a></span>
+											<span><a href="https://www.samsung.com/es/smartphones/galaxy-s23/buy/" target="_blank" rel="noopener noreferrer"><del>1.019 €</del> 729 €</a></span>
 											<hr style="border: 1px dashed"/>
 											<span><b>Amazon:</b></span>
-											<span><a href="https://www.amazon.es/dp/B0BQRSCBPM" target="_blank" rel="noopener noreferrer">729 €</a></span>
+											<span><a href="https://www.amazon.es/dp/B0BQRSCBPM" target="_blank" rel="noopener noreferrer">799 €</a></span>
 											<hr style="border: 1px dashed"/>
 											<span><b>Yaphone:</b></span>
-											<span><a href="https://www.yaphone.com/es/home/2571-samsung-galaxy-s23-5g.html#/12-almacenamiento-256gb/98-color-crema" target="_blank" rel="noopener noreferrer">700 €</a></span>
+											<span><a href="https://www.yaphone.com/es/home/2571-samsung-galaxy-s23-5g.html#/12-almacenamiento-256gb/98-color-crema" target="_blank" rel="noopener noreferrer">699 €</a></span>
 										</td>
 									</tr>
 									<tr id="GooglePixel8">
@@ -212,7 +535,7 @@
 											<span><a href="https://www.amazon.es/dp/B0CGVNYL7F/" target="_blank" rel="noopener noreferrer">859 €</a></span>
 											<hr style="border: 1px dashed"/>
 											<span><b>El Corte Inglés:</b></span>
-											<span><a href="https://www.elcorteingles.es/electronica/A49349276-google-pixel-8-8gb--256-gb-movil-libre/?color=Avellana" target="_blank" rel="noopener noreferrer">859 €</a></span>
+											<span><a href="https://www.elcorteingles.es/electronica/A49349276-google-pixel-8-8gb--256-gb-movil-libre/?color=Avellana" target="_blank" rel="noopener noreferrer"><del>859 €</del> 789,90 €</a></span>
 										</td>
 									</tr>
 									<tr id="GooglePixel7">
@@ -225,10 +548,10 @@
 											<span><a href="https://store.google.com/es/config/pixel_7?hl=es" target="_blank" rel="noopener noreferrer">749 €</a></span>
 											<hr style="border: 1px dashed"/>
 											<span><b>Amazon:</b></span>
-											<span><a href="https://www.amazon.es/dp/B0BDJ3H3NJ" target="_blank" rel="noopener noreferrer">725 €</a></span>
+											<span><a href="https://www.amazon.es/dp/B0BDJ3H3NJ" target="_blank" rel="noopener noreferrer"><del>725 €</del> 661 €</a></span>
 											<hr style="border: 1px dashed"/>
 											<span><b>Yaphone:</b></span>
-											<span><a href="https://www.yaphone.com/es/google/2545-google-pixel-7.html#/12-almacenamiento-256gb/76-color-lima" target="_blank" rel="noopener noreferrer">619 €</a></span><br/
+											<span><a href="https://www.yaphone.com/es/google/2545-google-pixel-7.html#/12-almacenamiento-256gb/76-color-lima" target="_blank" rel="noopener noreferrer">609 €</a></span><br/
 										</td>
 									</tr>
 									<tr id="NothingPhone2">
@@ -241,7 +564,7 @@
 											<span><a href="https://es.nothing.tech/products/phone-2?variant=42587812036787" target="_blank" rel="noopener noreferrer">699 €</a></span><br/>
 											<hr style="border: 1px dashed"/>
 											<span><b>Amazon:</b></span>
-											<span><a href="https://amzn.to/46TSbCw" target="_blank" rel="noopener noreferrer">669 €</a></span><br/>
+											<span><a href="https://amzn.to/46TSbCw" target="_blank" rel="noopener noreferrer"><del>669 €</del> 599 €</a></span><br/>
 											<hr style="border: 1px dashed"/>
 											<span><b>Yaphone:</b></span>
 											<span><a href="https://www.yaphone.com/es/home/2656-nothing-phone-2-5g.html#/12-almacenamiento-256gb/44-memoria_ram-12gb/24-color-blanco" target="_blank" rel="noopener noreferrer">589 €</a></span><br/>
@@ -288,12 +611,17 @@
 										</th>
 										<td>
 											<span><b>Samsung Store:</b></span><br/>
-											<span>128GB - <a href="https://www.samsung.com/es/smartphones/galaxy-a/galaxy-a54-5g/buy/" target="_blank" rel="noopener noreferrer">439 €</a></span><br/>
-											<span>256GB - 459 €</span><br/>
+											<span>128GB - <a href="https://www.samsung.com/es/smartphones/galaxy-a/galaxy-a54-5g/buy/" target="_blank" rel="noopener noreferrer">499 €</a></span><br/>
+											<span>256GB - 549 €</span><br/>
 											<hr style="border: 1px dashed"/>
 											<span><b>Amazon:</b></span><br/>
-											<span>128GB - <a href="https://www.amazon.es/dp/B0BWNDNZ3W/" target="_blank" rel="noopener noreferrer">419 €</a></span><br/>
-											<span>256GB - <a href="https://www.amazon.es/dp/B0BWNFWTSP/" target="_blank" rel="noopener noreferrer">469 €</a></span><br/>
+											<span>128GB - <a href="https://www.amazon.es/dp/B0BWNDNZ3W/" target="_blank" rel="noopener noreferrer"><del>499 €</del> 409 €</a></span><br/>
+											<span>256GB - <a href="https://www.amazon.es/dp/B0BWNFWTSP/" target="_blank" rel="noopener noreferrer"><del>549 €</del> 499 €</a></span><br/>
+											<hr style="border: 1px dashed"/>
+											<span><b>Yaphone:</b></span><br/>
+											<span>128GB - <a href="https://www.yaphone.com/es/samsung/2593-samsung-galaxy-a54-5g.html#/11-almacenamiento-128gb/43-memoria_ram-8gb/24-color-blanco" target="_blank" rel="noopener noreferrer">359 €</a></span><br/>
+											<span>256GB - <a href="https://www.yaphone.com/es/samsung/2593-samsung-galaxy-a54-5g.html#/43-memoria_ram-8gb/24-color-blanco/12-almacenamiento-256gb" target="_blank" rel="noopener noreferrer">399 €</a></span><br/>
+											
 										</td>
 									</tr>
 									<tr id="GooglePixel6A">
@@ -306,7 +634,10 @@
 											<span><a href="https://store.google.com/es/config/pixel_6a?hl=es" target="_blank" rel="noopener noreferrer">349 €</a></span>
 											<hr style="border: 1px dashed"/>
 											<span><b>Amazon:</b></span>
-											<span><a href="https://www.amazon.es/dp/B0C28GB5ZN/" target="_blank" rel="noopener noreferrer">375 €</a></span>
+											<span><a href="https://www.amazon.es/dp/B0C28GB5ZN/" target="_blank" rel="noopener noreferrer">362 €</a></span>
+											<hr style="border: 1px dashed"/>
+											<span><b>Yaphone:</b></span>
+											<span><a href="https://www.yaphone.com/es/google/2478-google-pixel-6a.html" target="_blank" rel="noopener noreferrer">359 €</a></span>
 										</td>
 									</tr>
 									<tr id="GooglePixel7A">
@@ -323,7 +654,9 @@
 											<hr style="border: 1px dashed"/>
 											<span><b>El Corte Inglés:</b></span>
 											<span><a href="https://www.elcorteingles.es/electronica/A49345148-google-pixel-7a-8-gb--128-gb-movil-libre/?color=Azul%20claro" target="_blank" rel="noopener noreferrer">509,90 €</a></span>
-											
+											<hr style="border: 1px dashed"/>
+											<span><b>Yaphone:</b></span>
+											<span><a href="https://www.yaphone.com/es/google/2619-google-pixel-7a.html" target="_blank" rel="noopener noreferrer">445 €</a></span>
 										</td>
 									</tr>
 									<tr id="SonyXperia10mk5">
@@ -337,11 +670,11 @@
 											<hr style="border: 1px dashed"/>
 											<span><b>Amazon:</b></span><br/>
 											<span> - <a href="https://www.amazon.es/dp/B0C4Z247ZF" target="_blank" rel="noopener noreferrer">Negro - 399 €</a></span><br/>
-											<span> - <a href="https://www.amazon.es/dp/B0C4Z1KCBD" target="_blank" rel="noopener noreferrer">Verde - 417 €</a></span><br/>
-											<span> - <a href="https://www.amazon.es/dp/B0C4Z5G4NV" target="_blank" rel="noopener noreferrer">Lavanda - 394 €</a></span><br/>
+											<span> - <a href="https://www.amazon.es/dp/B0C4Z1KCBD" target="_blank" rel="noopener noreferrer">Verde - 407 €</a></span><br/>
+											<span> - <a href="https://www.amazon.es/dp/B0C4Z5G4NV" target="_blank" rel="noopener noreferrer">Lavanda - 406 €</a></span><br/>
 											<hr style="border: 1px dashed"/>
 											<span><b>El Corte Inglés:</b></span>
-											<span><a href="https://www.elcorteingles.es/electronica/A48261514-sony-xperia-10-v-6gb--128-gb--esim-negro-movil-libre/" target="_blank" rel="noopener noreferrer">399 €</a></span>
+											<span><a href="https://www.elcorteingles.es/electronica/A48261514-sony-xperia-10-v-6gb--128-gb--esim-negro-movil-libre/" target="_blank" rel="noopener noreferrer">400 €</a></span>
 											<hr style="border: 1px dashed"/>
 											<span><b>ArsonCastro:</b></span>
 											<span><a href="https://www.arsoncastro.com/shop/xqdc54c0b-sony-xperia-10-v-6gb-128-gb-negro-xqdc54c0b-36494" target="_blank" rel="noopener noreferrer">399 €</a></span>
