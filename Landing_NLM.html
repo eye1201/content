@@ -336,6 +336,35 @@
 				color: black;
 				font-size: 100%;
 			}
+
+			/** scroll to top button **/
+			:root {
+				scroll-behavior: smooth;
+			}
+
+			.stt {
+				position: fixed;
+				right: 1rem;
+				bottom: 1rem;
+				width: 3rem;
+				height: 3rem;
+				border-radius: 50%;
+				background: rgb(128, 128, 255) url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath fill='currentColor' d='M352 352c-8.188 0-16.38-3.125-22.62-9.375L192 205.3l-137.4 137.4c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25C368.4 348.9 360.2 352 352 352z'%3E%3C/path%3E%3C/svg%3E") center no-repeat;
+				box-shadow: 0 0.25rem 0.5rem 0 gray;
+				opacity: 0.7;
+			}
+
+			.stt:hover {
+				opacity: 0.8;
+			}
+
+			.stt:focus {
+				opacity: 0.9;
+			}
+
+			.stt:active {
+				opacity: 1;
+			}
 		</style>
 	</head>
 	<body>
@@ -390,7 +419,7 @@
 						<details >
 							<summary>
 								[Pulsa para desplegar] <br/>
-								<b style="text-decoration: underline; text-decoration-style: dotted;">Última actualización: 15/08/2024 22:45h CEST</b> 
+								<b style="text-decoration: underline; text-decoration-style: dotted;">Última actualización: 16/08/2024 07:54h CEST</b> 
 							</summary>
 							<div class="detalle">
 								<p>
@@ -406,7 +435,7 @@
 					<div class="tablaProductos">
 						<div id="iPhone">
 							<img type="png" id="imgdispositivo" style="display: block; margin-left: auto; margin-right: auto; width: 20%;" src="/img/Logo_Apple-iPhone.png" alt="Apple iPhone Logo">
-							<h4 id="AppleiPhoneTxt" style="text-align: center;">Apple iPhone<sup>*</sup></h4>
+							<h4 id="AppleiPhone" style="text-align: center;"><span onclick="window.open('#AppleiPhone', '_self')">Apple iPhone</span> <sup onclick="window.open('#*', '_self')">*</sup></h4>
 							<p hidden >No hay teléfonos Apple iPhone añadidos para recomendar en este momento. ¡Lamentamos las molestias! <a href="https://wa.me/?text=Quiero%20más%20info%20sobre%20los%20precios%20de%20los%20iPhone%20.[El%20recomendador%20de%20NLM%20|https://eye1201.github.io/content/Landing_NLM.html%23iPhone]" target="_blank" rel="noopener noreferrer">Pulsa aquí para obetener información.</a></p>
 							<br/>
 							<table  id="iPhone" class="productos">
@@ -426,7 +455,7 @@
 									<tr id="iPhone15Pro">
 										<th id="iPhone15Pro">
 											<img id="imgdispositivo" src="https://m.media-amazon.com/images/I/81Wwngkh2OL._AC_SL1500_.jpg" onclick="window.open(this.src, '_blank');" alt="iPhone15Pro"/><br/>
-											<span>iPhone 15 Pro</span><br/>
+											<span><a href="#iPhone15Pro" style="color: black; text-decoration: unset;">iPhone 15 Pro</a></span><br/>
 											<hr style="border: 1px dashed"/>
 											<span><a href="https://m.media-amazon.com/images/I/71jqs5wUgxL._AC_SL1500_.jpg" target="_blank" rel="noopener noreferrer"><i>Colores iPhone 15 Pro</i></a></span><br/>
 											<hr style="border: 1px dashed"/>
@@ -456,7 +485,7 @@
 									<tr id="iPhone15">
 										<th id="iPhone15">
 											<img id="imgdispositivo" src="https://m.media-amazon.com/images/I/71vKy5OHuPL._AC_SL1500_.jpg" onclick="window.open(this.src, '_blank');" alt="iPhone15"/><br/>
-											<span>iPhone 15</span><br/>
+											<span><a href="#iPhone15" style="color: black; text-decoration: unset;">iPhone 15</a></span><br/>
 											<hr style="border: 1px dashed"/>
 											<span><a href="https://m.media-amazon.com/images/I/61BZXUiGzaL._AC_SL1500_.jpg" target="_blank" rel="noopener noreferrer"><i>Colores iPhone 15</i></a></span><br/>
 											<hr style="border: 1px dashed"/>
@@ -484,9 +513,9 @@
 										</td>
 									</tr>
 									<tr id="iPhone14">
-										<th id="nombreproducto">
+										<th id="iPhone14">
 											<img id="imgdispositivo" src="https://m.media-amazon.com/images/I/61bK6PMOC3L._AC_SL1500_.jpg" onclick="window.open(this.src, '_blank');" alt="iPhone14"/><br/>
-											<span>iPhone 14</span><br/>
+											<span><a href="#iPhone14" style="color: black; text-decoration: unset;">iPhone 14</a></span><br/>
 											<hr style="border: 1px dashed"/>
 											<span><a href="https://m.media-amazon.com/images/I/71nfZmgZkhL._AC_SL1500_.jpg" target="_blank" rel="noopener noreferrer"><i>Colores iPhone 14</i></a></span><br/>
 											<hr style="border: 1px dashed"/>
@@ -532,9 +561,9 @@
 										</td>
 									</tr>
 									<tr id="iPhone13">
-										<th id="nombreproducto">
+										<th id="iPhone13">
 											<img id="imgdispositivo" src="https://m.media-amazon.com/images/I/71iIaQjJunL._AC_SL1500_.jpg" onclick="window.open(this.src, '_blank');" alt="iPhone13"/><br/>
-											<span>iPhone 13</span><br/>
+											<span><a href="#iPhone13" style="color: black; text-decoration: unset;">iPhone 13</a></span><br/>
 											<hr style="border: 1px dashed"/>
 											<span><a href="https://m.media-amazon.com/images/I/71AormTzRHL._AC_SL1500_.jpg" target="_blank" rel="noopener noreferrer"><i>Colores iPhone 13</i></a></span><br/>
 											<hr style="border: 1px dashed"/>
@@ -592,7 +621,7 @@
 						<br/>
 						<div id="android">
 							<img type="png" id="imgdispositivo" style="display: block; margin-left: auto; margin-right: auto; width: 20%;" src="/img/Logo-Android_2.png" alt="Android Logo 2023">
-							<h4 id="AndroidTxt" style="text-align: center;">Android<sup>**</sup></h4>
+							<h4 id="Android" style="text-align: center;"><span onclick="window.open('#android', '_self')">Android</span> <sup onclick="window.open('#**', '_self')">**</sup></h4>
 							<p hidden >No hay teléfonos Android añadidos para recomendar en este momento. ¡Lamentamos las molestias!. <a href="https://wa.me/?text=Quiero%20más%20info%20sobre%20teléfonos%20android.[El%20recomendador%20de%20NLM%20|https://eye1201.github.io/content/Landing_NLM.html%23android]" target="_blank" rel="noopener noreferrer">Pulsa aquí para obetener información.</a></p>
 							<!-- GAMA ALTA DE ANDROID -->
 							<h5 id="android_gama-alta" style="text-align: center;">Teléfonos gama alta</h5>
@@ -1358,10 +1387,11 @@
 					</div>
 				</div>
 				<br/>
-				<p><i><sup>*</sup>Los iPhone son teléfonos de gama alta y gama alta premium (modelo pro max).</i></p>
-				<p><i><sup>**</sup>Los Android tienen distintas gamas, desde la gama baja hasta la gama alta premium.</i></p>
+				<p id="*"><i><sup>*</sup>Los iPhone son teléfonos de gama alta y gama alta premium (modelo pro max).</i></p>
+				<p id="**"><i><sup>**</sup>Los Android tienen distintas gamas, desde la gama baja hasta la gama alta premium.</i></p>
 				<p hidden class="printPageButton"><button  onclick="window.print();"> Imprimir 🖨️ página 📝 </button></p>
 				<br/>
+				<a href='#' class="stt" title="scroll to top"></a>
 			</div>
 			<!--fin contenido de pagina de pagina-->
 			<!--pie de pagina-->
